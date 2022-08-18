@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+  backend:
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      - JWT_SECRET=1234567890
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=nestjs
+      - MONGO_INITDB_ROOT_PASSWORD=0987654321
+    volumes:
+      - mongodb:/data/db
+
+  #nginx-proxy-manager:
+  #  image: 'jc21/nginx-proxy-manager'
+  #  restart: unless-stopped
+  #  ports:
+  #    - 443:443
+  #    - 81:81
+  #    - 80:80
+  #  volumes:
+  #    - /etc/nginx-proxy-manager:/data
+  #    - /etc/letsencrypt:/etc/letsencrypt
+
+  #jenkins:
+  #  image: jenkins/jenkins:lts
+  #  ports:
+  #    - 8080:8080
+  #    - 50000:50000
+  #  container_name: jenkins
+  #  volumes:
+  #    - /var/jenkins_home:/var/jenkins_home
+  #    - /var/run/docker.sock:/var/run/docker.sock
+  #    - /usr/local/bin/docker:/usr/local/bin/docker
+
+volumes:
+  mongodb:
