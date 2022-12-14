@@ -21,7 +21,7 @@ I hope you've installed node.js and docker already)
 
 1. Clone the repo
    ```sh
-   https://gitlab.com/backend237/crud-nestjs.git
+   git@github.com:neulad/nestjs-crud.git
    ```
 2. Don't forget to change JWT_SECRET in docker-compose.yml!
 
